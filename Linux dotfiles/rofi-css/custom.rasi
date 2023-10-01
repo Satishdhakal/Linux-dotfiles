@@ -1,0 +1,128 @@
+* {
+    background-darker: rgba(30, 31, 41, 0.7);
+    background: #282a36;
+    selection: #44475a;
+    foreground: #f8f8f2;
+    comment: #6272a4;
+    cyan: #8be9fd;
+    green: #50fa7b;
+    orange: #ffb86c;
+    pink: #ff79c6;
+    purple: #bd93f9;
+    red: #ff5555;
+    yellow: #f1fa8c;
+}
+
+
+* {
+  font: "UbuntuMono Nerd Font 14";
+  foreground: @foreground;
+  background-color: @background-darker;
+  border: 1px;
+  transparent: rgba(46, 52, 64, 0);
+}
+
+window {
+  width: 1200;
+  height: 570;
+
+  orientation: horizontal;
+  location: center;
+  anchor: center;
+  border-radius: 20px;
+  spacing: 0;
+  children: [ mainbox ];
+}
+
+mainbox {
+  spacing: 0;
+  children: [ inputbar, message, listview ];
+}
+
+inputbar {
+  color: @selection;
+  margin: 10px;
+  padding: 10px;
+  border: 3px;
+  border-color: @purple;
+  border-radius: 50px;
+}
+
+message {
+  border: 0;
+  padding: 0;
+}
+
+entry,
+prompt,
+case-indicator {
+  text-font: inherit;
+  text-color: inherit;
+}
+
+entry {
+  cursor: pointer;
+}
+
+listview {
+  layout: vertical;
+  padding: 10px;
+  lines: 12;
+  columns: 7;
+  border: 0;
+}
+
+element {
+  color: @cyan;
+  orientation: vertical;
+}
+
+element-text,
+element-icon {
+  background-color: inherit;
+  text-color: inherit;
+  horizontal-align: 0.5;
+}
+
+element-icon {
+  size: 64;
+}
+
+element selected.normal {
+  background-color: @comment;
+  border: 2px;
+  border-color: @cyan;
+  border-radius: 20px;
+}
+
+scrollbar {
+  enabled: true;
+}
+
+
+configuration {
+    modi: ["drun", "window", "run"];
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    sidebar-mode: false;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+
+    // Vim keybindings
+    kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+    kb-row-left: "Left,Control+h";
+    kb-row-right: "Right,Control+l";
+
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    kb-remove-to-eol: "Control+Shift+e";
+    kb-move-char-back: "Control+b";
+    kb-move-char-forward: "Control+f";
+    kb-mode-complete: "";
+    kb-remove-char-back: "BackSpace";
+}
